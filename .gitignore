@@ -1,0 +1,5 @@
+.build/
+build/
+Reference/out/
+*.dmg
+.DS_Store
