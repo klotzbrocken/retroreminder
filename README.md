@@ -1,135 +1,138 @@
 # RetroReminder
 
-Ein nativer macOS-Aufgabenmanager im Stil der **Erinnerungen-App von OS X 10.8**: dunkles Leder, liniertes Papier, roter Rand, Minikalender – und echte Funktion dahinter, auch mit den Erinnerungen deines Macs. Open Source (MIT).
+A native macOS task manager in the style of the **Reminders app of OS X 10.8**: dark leather, lined paper, red margin, mini calendar – with real functionality behind it, including your Mac's own reminders.
 
-<p align="center"><img src="docs/screenshots/main-en.png" alt="RetroReminder, Hauptfenster" width="820"></p>
+<p align="center"><img src="docs/screenshots/hero.png" alt="RetroReminder, main window" width="820"></p>
 
-> Swift 5.9 · AppKit + SwiftUI · macOS 14 oder neuer · Apple Silicon und Intel · Deutsch und Englisch
+> Swift 5.9 · AppKit + SwiftUI · macOS 14 or later · Apple Silicon and Intel · English and German · GPL-3.0
 >
-> **Hinweis:** RetroReminder ist ein unabhängiges Projekt und steht in keiner Verbindung zu Apple Inc. Das Design ist von OS X 10.8 *inspiriert*. Apple, Mac, macOS, OS X und Mountain Lion sind Marken von Apple Inc.
+> **Note:** RetroReminder is an independent project and is not affiliated with Apple Inc. The design is *inspired by* OS X 10.8. Apple, Mac, macOS, OS X and Mountain Lion are trademarks of Apple Inc.
 
-## Funktionen
+## Features
 
-- **Listen und Aufgaben** – Titel, Notiz, Priorität (Keine/Niedrig/Mittel/Hoch), Fälligkeit mit oder ohne Uhrzeit, Wiederholung (täglich bis jährlich), Erledigt-Ansicht je Liste und global, Umordnen per Drag-and-drop, Verschieben zwischen Listen.
-- **Suche, Kalender, Tagesansicht** – Suche beim Tippen, Klick auf einen Tag zeigt dessen Aufgaben, Punkte markieren Tage mit Erinnerungen.
-- **Natürliche Datumseingabe** – „Paket abholen morgen um 18:30“ / „Call Alex tomorrow at 10am“ setzt die Fälligkeit und entfernt die Zeitangabe aus dem Titel.
-- **Systemerinnerungen** (EventKit) – deine Listen aus der macOS-App „Erinnerungen“ erscheinen gruppiert nach Konto (z. B. iCloud); Lesen, Anlegen, Ändern, Erledigen, Löschen, Verschieben. Alarme übernimmt das System. Ein/Aus im Menü *Ablage › Systemerinnerungen verwenden*.
-- **Lokale Erinnerungen und Mitteilungen** – eigener Datenbestand ohne Konto, Mitteilungen mit „15 Minuten später“; „Schließen“ erledigt die Aufgabe nicht.
-- **Orte** – „An einem Ort“ mit Ankommen/Verlassen; die Adresse wird aufgelöst, ohne Auflösung gibt es keinen Ortsalarm.
-- **Kompaktmodus** mit Seitenpunkten, Trackpad-Wischen mit Mitziehen, und **eigene Listenfenster** (⌘↩) – alle Fenster teilen denselben Datenbestand und werden beim Start wiederhergestellt.
-- **Export** als `.ics` (VTODO).
-- **Eigenes App-Symbol** – in *RetroReminder › Einstellungen …* (⌘,) ein PNG mit genau 256 × 256 Pixeln wählen oder auf die Vorschau ziehen; gilt für das Dock, „Standard wiederherstellen“ setzt es zurück.
-- **Tastatur und VoiceOver** – alle Kernabläufe ohne Maus, Tab-Zonen, vollständige Bedienungshilfen (siehe unten).
+- **Lists and tasks** – title, note, priority (none/low/medium/high), due date with or without time, repeat (daily to yearly), completed view per list and global, drag-and-drop reordering, moving between lists.
+- **Search, calendar, day view** – search as you type; click a day to see its tasks; dots mark days with reminders.
+- **Natural-language dates** – "Pick up parcel tomorrow at 6:30pm" / "Call Alex tomorrow at 10am" sets the due date and removes the time phrase from the title.
+- **System reminders (EventKit)** – your lists from the macOS Reminders app appear grouped by account (e.g. iCloud); read, create, edit, complete, delete, move. Alarms are handled by the system. Toggle in *File › Use System Reminders*.
+- **Local reminders and notifications** – own data store without an account, notifications with "15 minutes later"; "Close" does not complete the task.
+- **Locations** – "At a location" with arriving/leaving; the address is resolved, without resolution there is no location alarm.
+- **Compact mode and list windows** – compact mode with page dots and trackpad swipe, plus separate list windows (⌘↩); all windows share one data store and are restored at launch.
+- **Export** – `.ics` (VTODO).
+- **Custom app icon** – in *RetroReminder › Settings …* (⌘,) choose a PNG of exactly 256 × 256 pixels or drop it on the preview; applies to the Dock, "Reset to Default" restores it.
+- **Keyboard and VoiceOver** – all core flows without a mouse, tab zones, full accessibility support (see below).
+- **Privacy** – local data stays on your Mac, no network access; Reminders access is requested once, location only for location alarms.
 
-## Bilder
+## Screenshots
 
 <table>
 <tr>
-<td><img src="docs/screenshots/main-de.png" alt="Deutsche Oberfläche"></td>
-<td><img src="docs/screenshots/lists-en.png" alt="Mehrere Listen gleichzeitig"></td>
+<td><img src="docs/screenshots/german-ui.png" alt="German user interface"></td>
+<td><img src="docs/screenshots/lists.png" alt="Several lists at once"></td>
 </tr>
-<tr><td align="center">Deutsche Oberfläche</td><td align="center">Mehrere Listen (⌘-Klick)</td></tr>
+<tr><td align="center">German user interface</td><td align="center">Several lists (⌘-click)</td></tr>
 <tr>
-<td><img src="docs/screenshots/completed-en.png" alt="Erledigt-Ansicht"></td>
-<td><img src="docs/screenshots/search-en.png" alt="Suche"></td>
+<td><img src="docs/screenshots/completed.png" alt="Completed view"></td>
+<td><img src="docs/screenshots/search.png" alt="Search"></td>
 </tr>
-<tr><td align="center">Erledigt, nach Datum gruppiert</td><td align="center">Suche beim Tippen</td></tr>
+<tr><td align="center">Completed, grouped by date</td><td align="center">Search as you type</td></tr>
 <tr>
-<td><img src="docs/screenshots/compact-en.png" alt="Kompaktmodus" width="320"> <img src="docs/screenshots/listwindow-en.png" alt="Listenfenster" width="320"></td>
-<td align="center"><img src="docs/screenshots/popover-en.png" alt="Detail-Popover" width="300"></td>
+<td><img src="docs/screenshots/compact.png" alt="Compact mode" width="320"> <img src="docs/screenshots/list-window.png" alt="List window" width="320"></td>
+<td align="center"><img src="docs/screenshots/popover.png" alt="Detail popover" width="300"></td>
 </tr>
-<tr><td align="center">Kompaktmodus · Listenfenster</td><td align="center">Detail-Popover mit Tag, Wiederholung und Ort</td></tr>
-<tr><td colspan="2" align="center"><img src="docs/screenshots/prefs-de.png" alt="Einstellungen: App-Symbol" width="420"><br>Einstellungen: eigenes App-Symbol (PNG, 256 × 256)</td></tr>
+<tr><td align="center">Compact mode · List window</td><td align="center">Detail popover with tag, repeat and location</td></tr>
+<tr><td colspan="2" align="center"><img src="docs/screenshots/settings.png" alt="Settings: app icon" width="420"><br>Settings: custom app icon (PNG, 256 × 256)</td></tr>
 </table>
 
-*Alle Bilder zeigen Demo-Daten (`-demo`), keine echten Erinnerungen. Neu erzeugen: `./docs/make-screenshots.sh`.*
+*All images show demo data (`-demo`), not real reminders. Re-create them with `./docs/make-screenshots.sh`.*
 
 ## Installation
 
-Das signierte und notarisierte DMG hängt am [Release](../../releases):
+Download the signed and notarized DMG from the [latest release](../../releases):
 
 ```bash
 gh release download --repo klotzbrocken/retroreminder --pattern '*.dmg'
-open RetroReminder-*.dmg      # App in „Programme“ ziehen
+open RetroReminder-*.dmg      # drag the app to "Applications"
 ```
 
-Beim ersten Start fragt macOS einmal nach dem Zugriff auf **Erinnerungen** (und nur bei Ortserinnerungen nach der Ortung). Ohne Freigabe bleibt die App mit lokalen Listen voll nutzbar.
+On first launch macOS asks once for access to **Reminders** (and for location only with location reminders). Without permission the app stays fully usable with local lists.
 
-## Selbst bauen
+## Build from source
 
 ```bash
-./build.sh        # baut build/RetroReminder.app (signiert mit „Apple Development“, sonst ad-hoc)
-./release.sh      # Developer ID + Hardened Runtime → Notarisierung → DMG → notarisieren/heften/prüfen
+./build.sh        # builds build/RetroReminder.app (signed with "Apple Development", otherwise ad hoc)
+./release.sh      # Developer ID + hardened runtime → notarize → DMG → notarize/staple/verify
 ```
 
-`release.sh` braucht ein Zertifikat „Developer ID Application“ im Schlüsselbund und ein `notarytool`-Profil (`NOTARY_PROFILE`, Standard `Retromac`). Hinweis: macOS bindet Datenschutz-Freigaben an die Signatur – mit stabilem Zertifikat kommt der Dialog nur einmal, mit ad-hoc-Signatur nach jedem Build.
+`release.sh` needs a "Developer ID Application" certificate in the keychain and a `notarytool` profile (`NOTARY_PROFILE`, default `Retromac`). Note: macOS ties privacy permissions to the signature – with a stable certificate the dialog appears once, with an ad-hoc signature after every build.
 
-## Tastatur
+## Keyboard shortcuts
 
-| Taste | Wirkung |
+| Key | Action |
 |---|---|
-| ⌘N / ⌘L | neue Erinnerung / neue Liste |
-| ↑ ↓ | Aufgabe wählen |
-| Leertaste | gewählte Aufgabe erledigen/öffnen (nie im Textfeld) |
-| Return | Aufgabe bearbeiten · im Suchfeld: erster Treffer · im Popover: Fertig |
-| Esc | Bearbeitung abbrechen · Auswahl aufheben · Suche beenden · Popover schließen |
-| ⌫ / ⌘⌫ | gewählte Aufgabe löschen |
-| ⌘I · ⌘E | Informationen (Popover) · als erledigt markieren |
-| Bearbeiten › In Liste verschieben | gewählte Aufgabe verschieben |
-| ⌘F | Suche (blendet im Kompaktmodus die Seitenleiste ein) |
-| ⌘T | Heute |
-| ⌘[ / ⌘] · ← / → | vorherige / nächste Liste (← → nur im Kompaktmodus) |
-| ⌥⌘K / ⌥⌘S | Kalender / Listen ein-/ausblenden |
-| ⌘R · ⇧⌘⌫ | Liste umbenennen · löschen |
-| ⌘↩ · ⌘0 | Liste in neuem Fenster · Hauptfenster |
-| ⌘Z / ⇧⌘Z | im Textfeld: Eingabe; sonst Datenbestand (nur lokale Daten) |
+| ⌘N / ⌘L | new reminder / new list |
+| ↑ ↓ | select task |
+| Space | complete/open selected task (never inside a text field) |
+| Return | edit task · in search: first hit · in popover: Done |
+| Esc | cancel editing · clear selection · end search · close popover |
+| ⌫ / ⌘⌫ | delete selected task |
+| ⌘I · ⌘E | info (popover) · mark as completed |
+| Edit › Move to List | move selected task |
+| ⌘F | search (shows the sidebar in compact mode) |
+| ⌘T | Today |
+| ⌘[ / ⌘] · ← / → | previous / next list (← → in compact mode only) |
+| ⌥⌘K / ⌥⌘S | show/hide calendar / lists |
+| ⌘R · ⇧⌘⌫ | rename list · delete list |
+| ⌘↩ · ⌘0 | list in new window · main window |
+| ⌘Z / ⇧⌘Z | in a text field: typing; otherwise the data store (local data only) |
 
-**Tab / ⇧Tab** wechselt die Zone: Suche → Listen → Kalender → untere Knöpfe → Plus → Papier. In den Listen: ↑↓ Liste, Return umbenennen. Im Kalender: ←→ Tag, ↑↓ Woche, Bild↑↓ Monat, Home heute, Return/Leertaste Tag wählen.
+**Tab / ⇧Tab** switches zones: search → lists → calendar → bottom buttons → plus → paper. In the lists: ↑↓ list, Return rename. In the calendar: ←→ day, ↑↓ week, Page ↑↓ month, Home today, Return/Space select day.
 
-## Barrierefreiheit
+## Accessibility
 
-Jede Aufgabe ist ein VoiceOver-Element (Name, Priorität als Text, offen/erledigt, überfällig, Fälligkeit) mit Standardaktion „Erledigen“ und den Aktionen *Informationen*, *Titel bearbeiten*, *Löschen*. Kalendertage tragen das volle Datum samt „heute“, „ausgewählt“, „hat Erinnerungen“; Erledigen und Neuanlegen werden angesagt. Prüfliste für den manuellen Durchlauf: [VOICEOVER.md](VOICEOVER.md).
+Every task is a VoiceOver element (name, priority as text, open/completed, overdue, due date) with the default action "Complete" and the actions *Info*, *Edit title*, *Delete*. Calendar days carry the full date including "today", "selected", "has reminders"; completing and creating are announced. Checklist for manual testing: [VOICEOVER.md](VOICEOVER.md).
 
-## Tests und Qualität
+## Testing
 
 ```bash
 APP="build/RetroReminder.app/Contents/MacOS/RetroReminder"
-"$APP" -selftest                                  # Parser, Serien (Monatsende), Alarm, Undo, Wischen, Listenfenster
-"$APP" -demo -keytest -snap=/tmp/k.png            # Tastaturbedienung über synthetische Tastenereignisse
-"$APP" -demo -axdump  -snap=/tmp/a.png            # Bedienungshilfen: Elementliste, Reihenfolge, Standardaktion
-Reference/snap.sh && python3 Reference/diff.py    # Pixelvergleich gegen die Referenz (Reference/README.md)
+"$APP" -selftest                                  # parser, repeats (month end), alarms, undo, swipe, list windows
+"$APP" -demo -keytest -snap=/tmp/k.png            # keyboard operation via synthetic key events
+"$APP" -demo -axdump  -snap=/tmp/a.png            # accessibility: element list, order, default action
+Reference/snap.sh && python3 Reference/diff.py    # pixel comparison against the reference (Reference/README.md)
 ```
 
-**Wie genau ist der Nachbau?** Optisch eng am Original, aber *nicht pixelidentisch*: Gegen den Referenz-Screenshot weichen im Gesamtfenster rund 12 % der Pixel um mehr als 8/255 ab (Seitenleistenliste ~6 %, Suchfeld ~4–10 %, Papierkopf ~12 %). Der Rest ist Schriftglättung und Korn der Textur. Leder und Papier werden aus den *gemessenen Statistiken* der Referenz erzeugt (`Reference/make_textures.py`), nicht aus Original-Bitmaps.
+**How close is the recreation?** Visually close to the original but *not pixel-identical*: against the reference screenshot about 12 % of the pixels of the whole window differ by more than 8/255 (sidebar list ~6 %, search field ~4–10 %, paper header ~12 %). The rest is font smoothing and texture grain. Leather and paper are generated from the *measured statistics* of the reference (`Reference/make_textures.py`), not from original bitmaps.
 
-## Aufbau
+## Project layout
 
-| Datei | Inhalt |
+| File | Purpose |
 |---|---|
-| `Sources/RetroReminder/Model.swift` | Datenmodell, Store (Persistenz, Undo, Serien), lokale Alarme |
-| `EKBridge.swift` | Systemerinnerungen über EventKit |
-| `ViewState.swift` | Zustand je Fenster: Ansichten, Zonen, Wischen, Fokus |
-| `Views.swift`, `Paper.swift`, `Detail.swift` | Seitenleiste/Kalender, Papier/Zeilen, Popover |
-| `Textures.swift` | Texturen, Verläufe aus gemessenen Zeilenprofilen |
-| `App.swift` | Fenster, Menüs, Wiederherstellung, Test-Hilfen |
-| `Preferences.swift` | Einstellungen: eigenes App-Symbol (PNG 256 × 256) |
-| `SelfTest.swift` | Selbsttest (`-selftest`) |
-| `Reference/` | Messwerkzeuge für den Referenzvergleich |
+| `Sources/RetroReminder/Model.swift` | data model, store (persistence, undo, repeats), local alarms |
+| `EKBridge.swift` | system reminders via EventKit |
+| `ViewState.swift` | per-window state: views, zones, swipe, focus |
+| `Views.swift`, `Paper.swift`, `Detail.swift` | sidebar/calendar, paper/rows, popover |
+| `Textures.swift` | textures, gradients from measured row profiles |
+| `App.swift` | windows, menus, restoration, test helpers |
+| `Preferences.swift` | settings: custom app icon (PNG 256 × 256) |
+| `SelfTest.swift` | self-test (`-selftest`) |
+| `Reference/` | measuring tools for the reference comparison |
 
-Daten: lokale Erinnerungen in `~/Library/Application Support/RetroReminder/store.json` (ein älterer Ordner „MountainLionReminders“ wird beim ersten Start übernommen) (atomar geschrieben, beschädigte Dateien werden gesichert); Systemerinnerungen bleiben ausschließlich im System.
+## Data & privacy
 
-## Grenzen
+Local reminders live in `~/Library/Application Support/RetroReminder/store.json` (an older "MountainLionReminders" folder is imported on first launch; written atomically, damaged files are backed up). System reminders stay exclusively in the system. No network access.
 
-- Mindest-/Maximalgrößen (440×450 … 1000×700, kompakt 300–360 breit) sind Testvorgaben, nicht am Original gemessen.
-- Deutsche Beschriftungen sind begründete Arbeitsnamen; eine deutsche Original-Referenz fehlt.
-- Ortsalarme: Koordinaten werden gespeichert und ans System gegeben; das tatsächliche Auslösen ist nicht nachgewiesen.
-- Rückgängig gilt nur für lokale Daten; Systemerinnerungen sind davon ausgenommen.
-- Komplexe Wiederholungen (z. B. „jeden 2. Dienstag“) bleiben im System unverändert und werden nicht angezeigt.
+## Limitations
 
-## Lizenz und Rechtliches
+- Minimum/maximum sizes (440×450 … 1000×700, compact 300–360 wide) are test values, not measured on the original.
+- German labels are reasoned working names; a German original reference is missing.
+- Location alarms: coordinates are stored and handed to the system; actual triggering is not verified.
+- Undo applies to local data only; system reminders are excluded.
+- Complex repeats (e.g. "every 2nd Tuesday") stay unchanged in the system and are not shown.
+- Reference images for the pixel comparison are not shipped (`Reference/out/` is excluded); the measuring scripts expect them locally.
 
-- **Code:** MIT-Lizenz, siehe [LICENSE](LICENSE).
-- **Keine Verbindung zu Apple:** RetroReminder ist ein unabhängiges Open-Source-Projekt und wird von Apple weder autorisiert noch unterstützt. Das Aussehen ist von OS X 10.8 inspiriert; es sind keine Apple-Bilder, -Schriften, -Töne oder -Texturen enthalten (Leder und Papier werden aus gemessenen Statistiken erzeugt, Schriften stammen aus dem installierten System). Apple, Mac, macOS, OS X und Mountain Lion sind Marken von Apple Inc.
-- **App-Symbol:** `Resources/icon-source.png` und `AppIcon.icns` sind **nicht** von der MIT-Lizenz abgedeckt; sie stammen aus einer vom Autor mit KI erzeugten Bilddatei. Forks sollten ein eigenes Symbol verwenden – dafür gibt es die Einstellung *App-Symbol* (PNG 256 × 256).
-- **Referenzbilder** für den Pixelvergleich werden nicht mitgeliefert (`Reference/out/` ist ausgeschlossen); die Messskripte erwarten sie lokal.
-- **Vertrieb:** ausschließlich über GitHub (Quellcode und notarisierte Releases), nicht über den App Store.
+## License & legal
+
+- **Code:** [GNU General Public License v3.0](LICENSE) (GPL-3.0). Copyright © 2026 Maik Klotz.
+- **No affiliation with Apple:** RetroReminder is an independent open-source project, neither authorized nor endorsed by Apple. No Apple images, fonts, sounds or textures are included (leather and paper are generated from measured statistics, fonts come from the installed system). Apple, Mac, macOS, OS X and Mountain Lion are trademarks of Apple Inc.
+- **App icon:** `Resources/icon-source.png` and `AppIcon.icns` are AI-generated and are **not** covered by the GPL; all rights reserved. Forks should use their own icon – the *App Icon* setting (PNG 256 × 256) exists for that.
+- **Distribution:** GitHub only (source and notarized releases), not the App Store.
