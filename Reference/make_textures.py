@@ -2,9 +2,9 @@
 """Erzeugt kachelbare Leder-/Papier-/Versenkungs-Texturen aus den GEMESSENEN Statistiken der Referenz
 (Mittelwert, Streuung, Autokorrelation bei 1/2/3/5 px). Es werden keine Referenzpixel kopiert.
 Ausgabe: Resources/leather.png, paper.png, pit.png (512 px = 256 pt @2x)."""
-import numpy as np, os
+import os, numpy as np, os
 from PIL import Image
-REF = "/Users/maik/Downloads/Mountain Lion Reminder/2012-06-18-reminders.png"
+REF = os.environ.get("REF_IMAGE", "Reference/2012-06-18-reminders.png")   # Referenzscreenshot (nicht im Repo): Pfad per REF_IMAGE angeben
 R = np.asarray(Image.open(REF).convert("RGB")).astype(float)[35:544, 57:798].mean(axis=2)
 
 def ac(p, ks=(1, 2, 3, 5)):

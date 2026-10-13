@@ -2,10 +2,10 @@
 """Pixel-Diff pro Komponente: Referenz (Ars Technica, 18.06.2012) gegen -ref-Snapshot der App.
 Aufruf: python3 Reference/diff.py [ordner-mit-snapshots]   Ausgabe: Reference/out/*.png + report.md
 Kriterium (Lastenheft 12.2): Anteil Pixel mit >8/255 Abweichung in einem Kanal je Komponente, Ausrichtung ±2 px frei."""
-import sys, os
+import os, sys, os
 from PIL import Image, ImageChops
 import numpy as np
-REF = "/Users/maik/Downloads/Mountain Lion Reminder/2012-06-18-reminders.png"
+REF = os.environ.get("REF_IMAGE", "Reference/2012-06-18-reminders.png")   # Referenzscreenshot (nicht im Repo): Pfad per REF_IMAGE angeben
 snap = sys.argv[1] if len(sys.argv) > 1 else "/tmp/ml"
 out = os.path.join(os.path.dirname(__file__), "out"); os.makedirs(out, exist_ok=True)
 ref_full = Image.open(REF).convert("RGB")

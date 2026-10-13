@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Tinten-Bounding-Box je Textelement: Referenz vs. App (Position, Breite, Höhe, mittlere Tintenfarbe)."""
-import sys
+import sys, os
 from PIL import Image
 import numpy as np
+REF = os.environ.get("REF_IMAGE", "Reference/2012-06-18-reminders.png")   # Referenzscreenshot (nicht im Repo)
 snap = sys.argv[1] if len(sys.argv) > 1 else "/tmp/ml"
-ref = np.asarray(Image.open("/Users/maik/Downloads/Mountain Lion Reminder/2012-06-18-reminders.png").convert("RGB").crop((57,35,798,544))).astype(float)
+ref = np.asarray(Image.open(REF).convert("RGB").crop((57,35,798,544))).astype(float)
 app = np.asarray(Image.open(f"{snap}/ref_main.png").convert("RGB").crop((0,0,741,509))).astype(float)
-pr = np.asarray(Image.open("/Users/maik/Downloads/Mountain Lion Reminder/2012-06-18-reminders.png").convert("RGB").crop((783,41,1047,268))).astype(float)
+pr = np.asarray(Image.open(REF).convert("RGB").crop((783,41,1047,268))).astype(float)
 pa = np.asarray(Image.open(f"{snap}/ref_main.png.pop.png").convert("RGB")).astype(float)
 E = [("Fenstertitel", ref, app, (250,2,500,21), 40),
      ("Seitenl. Completed", ref, app, (12,62,190,92), 40),

@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Vertikale Mittelwertprofile Referenz vs. App für Messstreifen (Verlaufsabgleich)."""
-import sys
+import sys, os
 from PIL import Image
 import numpy as np
+REF = os.environ.get("REF_IMAGE", "Reference/2012-06-18-reminders.png")   # Referenzscreenshot (nicht im Repo)
 snap = sys.argv[1] if len(sys.argv) > 1 else "/tmp/ml"
-ref = np.asarray(Image.open("/Users/maik/Downloads/Mountain Lion Reminder/2012-06-18-reminders.png").convert("RGB").crop((57,35,798,544))).astype(float)
+ref = np.asarray(Image.open(REF).convert("RGB").crop((57,35,798,544))).astype(float)
 app = np.asarray(Image.open(f"{snap}/ref_main.png").convert("RGB").crop((0,0,741,509))).astype(float)
-pop_r = np.asarray(Image.open("/Users/maik/Downloads/Mountain Lion Reminder/2012-06-18-reminders.png").convert("RGB").crop((783,41,1047,268))).astype(float)
+pop_r = np.asarray(Image.open(REF).convert("RGB").crop((783,41,1047,268))).astype(float)
 pop_a = np.asarray(Image.open(f"{snap}/ref_main.png.pop.png").convert("RGB")).astype(float)
 S = [("Titelleiste x500-600", ref, app, (500,600), (0,26)),
      ("Suchfeld x60-140", ref, app, (60,140), (24,54)),

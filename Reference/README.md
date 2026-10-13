@@ -53,3 +53,5 @@ Pop. Notiz                   110,133 108×52   77        110,132 107×50  108   
 Zeile '15' und Notizzeile der Aufgabe sind durch Linien in der Messbox verfälscht.
 Fensterknöpfe: Ø 12 px, Mitte y=11, Abstand 20 px, Zeilenprofile (R/G/B) und Reflexion aus der Referenz gemessen; Fensterrand: weiche Lichtkante statt schwarzem Strich.
 Kriterium Lastenheft 12.2 (≤ 1 %) bleibt nicht erfüllt.
+
+**Referenzbild:** Der Screenshot `2012-06-18-reminders.png` (Ars Technica) ist nicht im Repo. Pfad per Umgebungsvariable angeben: `REF_IMAGE=/Pfad/zum/Bild.png python3 Reference/diff.py`.
