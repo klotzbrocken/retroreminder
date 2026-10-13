@@ -352,8 +352,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSMe
     // MARK: Über / Einstellungen
     var prefsWindow: NSWindow?
     @objc func showAbout() {
-        let text = L("Design inspired by OS X 10.8. RetroReminder is an independent open-source project (MIT License) and is not affiliated with, authorized or endorsed by Apple Inc. Apple, Mac, macOS, OS X and Mountain Lion are trademarks of Apple Inc.",
-                     "Design inspiriert von OS X 10.8. RetroReminder ist ein unabhängiges Open-Source-Projekt (MIT-Lizenz) und steht in keiner Verbindung zu Apple Inc., wird weder von Apple autorisiert noch unterstützt. Apple, Mac, macOS, OS X und Mountain Lion sind Marken von Apple Inc.")
+        let text = L("Design inspired by OS X 10.8. RetroReminder is an independent open-source project (GPL-3.0) and is not affiliated with, authorized or endorsed by Apple Inc. Apple, Mac, macOS, OS X and Mountain Lion are trademarks of Apple Inc.",
+                     "Design inspiriert von OS X 10.8. RetroReminder ist ein unabhängiges Open-Source-Projekt (GPL-3.0) und steht in keiner Verbindung zu Apple Inc., wird weder von Apple autorisiert noch unterstützt. Apple, Mac, macOS, OS X und Mountain Lion sind Marken von Apple Inc.")
         NSApp.orderFrontStandardAboutPanel(options: [.credits: NSAttributedString(string: text, attributes: [.font: NSFont.systemFont(ofSize: 11), .foregroundColor: NSColor.labelColor]), .applicationName: "RetroReminder"])
         NSApp.activate(ignoringOtherApps: true)
     }
