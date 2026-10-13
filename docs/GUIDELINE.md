@@ -1,6 +1,6 @@
 # Retro App Family — Repository Guideline
 
-Applies to: **RetroNotes**, **RetroCal**, **RetroReminder**, **RetroContacts** (and any future app in the family). A copy of this file lives in each repository at `docs/GUIDELINE.md`; the copies must stay identical.
+Applies to: **RetroNotes**, **RetroCal**, **RetroReminder**, **RetroContacts**, **RetroFind** (and any future app in the family). A copy of this file lives in each repository at `docs/GUIDELINE.md`; the copies must stay identical.
 Goal: every repository looks, reads and builds the same way, so a visitor who knows one knows all.
 
 All repository documentation — README, changelog, guideline, screenshot alt texts, new code comments — is **English**.
@@ -67,7 +67,7 @@ Use these sections **in this order, with these exact headings**. Omit an optiona
 
 **Apple disclaimer** (blockquote, section 3 of the table):
 
-> **Note:** <AppName> is an independent project and is not affiliated with Apple Inc. The design is *inspired by* OS X 10.8. Apple, Mac, macOS, OS X and Mountain Lion are trademarks of Apple Inc.
+> **Note:** <AppName> is a non-commercial fan project, made out of respect for Apple. It is an independent project and is not affiliated with Apple Inc. The design is *inspired by* OS X 10.8. Apple, Mac, macOS, OS X and Mountain Lion are trademarks of Apple Inc.
 
 **License & legal** (verbatim, only `<AppName>` and the "no Apple assets" detail change):
 
@@ -75,6 +75,7 @@ Use these sections **in this order, with these exact headings**. Omit an optiona
 ## License & legal
 
 - **Code:** [GNU General Public License v3.0](LICENSE) (GPL-3.0). Copyright © 2026 Maik Klotz.
+- **Fan project:** <AppName> is a non-commercial fan project, made out of respect and admiration for Apple and the design of OS X 10.8. It is free of charge, makes no claim to any Apple trademark, design or artwork, and is provided "as is" without warranty (GPL-3.0, sections 15–16). If you are a rights holder and have a concern, please open an issue – I will respond promptly and in good faith.
 - **No affiliation with Apple:** <AppName> is an independent open-source project, neither authorized nor endorsed by Apple. No Apple images, fonts, sounds or textures are included (textures are generated, fonts come from the installed system). Apple, Mac, macOS, OS X and Mountain Lion are trademarks of Apple Inc.
 - **App icon:** `Resources/icon-source.png` and `AppIcon.icns` are AI-generated and are **not** covered by the GPL; all rights reserved. Forks should use their own icon.
 - **Distribution:** GitHub only (source and notarized releases), not the App Store.
